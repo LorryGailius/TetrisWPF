@@ -76,7 +76,13 @@ namespace TetrisWPF
             CurrentBlock.RotateClockwise();
             if (!BlockFits())
             {
-                CurrentBlock.RotateCounterClockwise();
+                CurrentBlock.Move(0, -1);
+
+                if (!BlockFits())
+                {
+                    CurrentBlock.Move(0, 2);
+                    CurrentBlock.RotateClockwise();
+                }
             }
         }
 
@@ -85,7 +91,13 @@ namespace TetrisWPF
             CurrentBlock.RotateCounterClockwise();
             if (!BlockFits())
             {
-                CurrentBlock.RotateClockwise();
+                CurrentBlock.Move(0, -1);
+
+                if (!BlockFits())
+                {
+                    CurrentBlock.Move(0, 2);
+                    CurrentBlock.RotateCounterClockwise();
+                }
             }
         }
 
