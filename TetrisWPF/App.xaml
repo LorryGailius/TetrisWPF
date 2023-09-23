@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:TetrisWPF"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <FontFamily x:Key="Minecraft">/Assets/Fonts/#Minecraft</FontFamily>
     </Application.Resources>
 </Application>

@@ -63,31 +63,33 @@
             }
         }
 
-        private void MoveRowDown(int row, int numRows)
+        private void MoveRowDown(int r, int numRows)
         {
-            for (int column = 0; column < Columns; column++)
+            for (int c = 0; c < Columns; c++)
             {
-                grid[row + numRows, column] = grid[row, column];
-                grid[row, column] = 0;
+                grid[r + numRows, c] = grid[r, c];
+                grid[r, c] = 0;
             }
         }
 
         public int ClearFullRows()
         {
-            int numRowsMoved = 0;
-            for (int row = 0; row < Rows; row++)
+            int cleared = 0;
+
+            for (int r = Rows - 1; r >= 0; r--)
             {
-                if (IsRowFull(row))
+                if (IsRowFull(r))
                 {
-                    ClearRow(row);
-                    numRowsMoved++;
+                    ClearRow(r);
+                    cleared++;
                 }
-                else if (numRowsMoved > 0)
+                else if (cleared > 0)
                 {
-                    MoveRowDown(row, numRowsMoved);
+                    MoveRowDown(r, cleared);
                 }
             }
-            return numRowsMoved;
+
+            return cleared;
         }
     }
 }
