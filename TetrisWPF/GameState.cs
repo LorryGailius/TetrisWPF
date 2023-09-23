@@ -168,7 +168,7 @@ namespace TetrisWPF
             return ret;
         }
 
-        private int BlockDistance()
+        public int BlockDistance()
         {
             int ret = Grid.Rows;
 
