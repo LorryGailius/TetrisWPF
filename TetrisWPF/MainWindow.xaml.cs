@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -63,7 +64,7 @@ namespace TetrisWPF
                         Height = cellSize
                     };
 
-                    Canvas.SetTop(imageControl, (r - 2) * cellSize);
+                    Canvas.SetTop(imageControl, (r - 2) * cellSize + 10);
                     Canvas.SetLeft(imageControl, c * cellSize);
                     GameCanvas.Children.Add(imageControl);
                     imageControls[r, c] = imageControl;
@@ -86,6 +87,12 @@ namespace TetrisWPF
             }
         }
 
+        private void DrawNextBlock(BlockQueue blockQueue)
+        {
+            Block next = blockQueue.NextBlock;
+            NextImage.Source = blockImages[next.Id];
+        }
+
         private void DrawBlock(Block block)
         {
             foreach (Position p in block.GetTiles())
@@ -99,6 +106,21 @@ namespace TetrisWPF
         {
             DrawGrid(gameState.Grid);
             DrawBlock(gameState.CurrentBlock);
+            DrawNextBlock(gameState.BlockQueue);
+        }
+
+        private async Task GameLoop()
+        {
+            DrawGameState(gameState);
+
+            while (!gameState.GameOver)
+            {
+                await Task.Delay(400);
+                gameState.MoveBlockDown();
+                DrawGameState(gameState);
+            }
+
+            GameOverScreen.Visibility = Visibility.Visible;
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
@@ -134,14 +156,16 @@ namespace TetrisWPF
             DrawGameState(gameState);
         }
 
-        private void GameCanvas_Loaded(object sender, RoutedEventArgs e)
+        private async void GameCanvas_Loaded(object sender, RoutedEventArgs e)
         {
-            DrawGameState(gameState);
+            await GameLoop();
         }
 
-        private void RestartButton_Click(object sender, RoutedEventArgs e)
+        private async void RestartButton_Click(object sender, RoutedEventArgs e)
         {
-
+            gameState = new GameState(22, 10);
+            GameOverScreen.Visibility = Visibility.Hidden;
+            await GameLoop();
         }
     }
 }

@@ -13,6 +13,16 @@ namespace TetrisWPF
             {
                 currentBlock = value;
                 currentBlock.Reset();
+
+                for (int i = 0; i < 2; i++)
+                {
+                    currentBlock.Move(1, 0);
+
+                    if (!BlockFits())
+                    {
+                        currentBlock.Move(-1, 0);
+                    }
+                }
             }
         }
 
@@ -23,19 +33,19 @@ namespace TetrisWPF
 
         public GameState(int rows, int columns)
         {
-            Grid = new GameGrid(22, 10);
+            Grid = new GameGrid(rows, columns);
             BlockQueue = new BlockQueue();
             CurrentBlock = BlockQueue.GetNextBlock();
         }
 
-        private bool BlockFits() 
-        { 
+        private bool BlockFits()
+        {
             foreach (Position p in CurrentBlock.GetTiles())
             {
                 if (!Grid.IsCellEmpty(p.Row, p.Column))
                 {
-                    return false; 
-                } 
+                    return false;
+                }
             }
             return true;
         }
@@ -108,7 +118,7 @@ namespace TetrisWPF
             else
             {
                 CurrentBlock = BlockQueue.GetNextBlock();
-            } 
+            }
         }
     }
 }
