@@ -1,4 +1,4 @@
-# TetrisWPF
+# 🕹️Tetris WPF🕹️
 A tetris game made with C# .NET WPF
 
 ## How to play
