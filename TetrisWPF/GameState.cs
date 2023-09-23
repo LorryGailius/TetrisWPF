@@ -30,6 +30,8 @@ namespace TetrisWPF
         public BlockQueue BlockQueue { get; }
         public bool GameOver { get; set; }
         public int Score { get; set; }
+        public Block heldBlock { get; set; }
+        public bool CanHold { get; set; } = true;
 
         public GameState(int rows, int columns)
         {
@@ -48,6 +50,25 @@ namespace TetrisWPF
                 }
             }
             return true;
+        }
+
+        public void HoldBlock()
+        {
+            if (CanHold)
+            {
+                if (heldBlock == null)
+                {
+                    heldBlock = CurrentBlock;
+                    CurrentBlock = BlockQueue.GetNextBlock();
+                }
+                else
+                {
+                    Block temp = heldBlock;
+                    heldBlock = CurrentBlock;
+                    CurrentBlock = temp;
+                }
+                CanHold = false;
+            }
         }
 
         public void RotateBlockClockwise()
@@ -118,6 +139,7 @@ namespace TetrisWPF
             else
             {
                 CurrentBlock = BlockQueue.GetNextBlock();
+                CanHold = true;
             }
         }
     }
