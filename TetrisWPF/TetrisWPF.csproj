@@ -7,4 +7,28 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Resource Include="Assets\Themes\Modern\Background.png" />
+    <Resource Include="Assets\Themes\Modern\Block-Empty.png" />
+    <Resource Include="Assets\Themes\Modern\Block-I.png" />
+    <Resource Include="Assets\Themes\Modern\Block-J.png" />
+    <Resource Include="Assets\Themes\Modern\Block-L.png" />
+    <Resource Include="Assets\Themes\Modern\Block-O.png" />
+    <Resource Include="Assets\Themes\Modern\Block-S.png" />
+    <Resource Include="Assets\Themes\Modern\Block-T.png" />
+    <Resource Include="Assets\Themes\Modern\Block-Z.png" />
+    <Resource Include="Assets\Fonts\Minecraft.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Themes\Modern\Icon.ico" />
+    <Resource Include="Assets\Themes\Modern\TileBlue.png" />
+    <Resource Include="Assets\Themes\Modern\TileCyan.png" />
+    <Resource Include="Assets\Themes\Modern\TileEmpty.png" />
+    <Resource Include="Assets\Themes\Modern\TileGreen.png" />
+    <Resource Include="Assets\Themes\Modern\TileOrange.png" />
+    <Resource Include="Assets\Themes\Modern\TilePurple.png" />
+    <Resource Include="Assets\Themes\Modern\TileRed.png" />
+    <Resource Include="Assets\Themes\Modern\TileYellow.png" />
+  </ItemGroup>
+
 </Project>
