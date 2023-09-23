@@ -168,7 +168,12 @@ namespace TetrisWPF
                     break;
 
                 case Key.LeftShift:
+                case Key.RightShift:
                     gameState.HoldBlock();
+                    break;
+
+                case Key.Space:
+                    gameState.DropBlock();
                     break;
             }
 

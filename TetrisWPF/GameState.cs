@@ -1,4 +1,5 @@
-﻿using TetrisWPF.Blocks;
+﻿using System;
+using TetrisWPF.Blocks;
 
 namespace TetrisWPF
 {
@@ -153,6 +154,36 @@ namespace TetrisWPF
                 CurrentBlock = BlockQueue.GetNextBlock();
                 CanHold = true;
             }
+        }
+
+        private int TileDistance(Position p)
+        {
+            int ret = 0;
+
+            while (Grid.IsCellEmpty(p.Row + ret + 1, p.Column))
+            {
+                ret++;
+            }
+
+            return ret;
+        }
+
+        private int BlockDistance()
+        {
+            int ret = Grid.Rows;
+
+            foreach (Position p in CurrentBlock.GetTiles())
+            {
+                ret = Math.Min(ret, TileDistance(p));
+            }
+
+            return ret;
+        }
+
+        public void DropBlock()
+        {
+            CurrentBlock.Move(BlockDistance(), 0);
+            PlaceBlock();
         }
     }
 }
