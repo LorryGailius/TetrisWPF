@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TetrisWPF", "TetrisWPF\TetrisWPF.csproj", "{DDB470AF-4024-4A65-9352-2424DABDE788}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DDB470AF-4024-4A65-9352-2424DABDE788}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDB470AF-4024-4A65-9352-2424DABDE788}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDB470AF-4024-4A65-9352-2424DABDE788}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDB470AF-4024-4A65-9352-2424DABDE788}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7B02DF4D-8753-495E-969A-B728328F6F51}
+	EndGlobalSection
+EndGlobal
